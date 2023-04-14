@@ -1,0 +1,13 @@
+@import url('https://fonts.google.com/specimen/League+Spartan');
+
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background-color: hsl(180, 52%, 96%);
+  font-family: League Spartan, sans-serif;
+  font-size: 15px;
+  min-width: 500px;
+}
