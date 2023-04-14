@@ -5,7 +5,9 @@ import ElemWorkPlace from '../ElemWorkPlace/ElemWorkPlace';
 const WorkPlace = () => {
   return (
     <div className={styles.mainDiv}>
-      <ElemWorkPlace></ElemWorkPlace>
+      <ElemWorkPlace />
+      <ElemWorkPlace />
+      <ElemWorkPlace />
     </div>
   );
 };
