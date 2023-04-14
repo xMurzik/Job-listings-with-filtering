@@ -1,0 +1,27 @@
+.mainDiv {
+  width: 81.5%;
+  height: min-content;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 10px;
+  min-width: 200px;
+  display: flex;
+  min-width: 280px;
+}
+
+@media (max-width: 500px) {
+  .mainDiv {
+    position: absolute;
+    width: 85%;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+@media (max-width: 340px) {
+  .mainDiv {
+    top: 220px;
+    width: 89%;
+  }
+}
