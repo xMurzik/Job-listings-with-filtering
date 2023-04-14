@@ -16,8 +16,12 @@ const DivListElem = styled.div`
   padding-left: 20px;
   padding-right: 10px;
   transform: translate(-50%);
-  min-width: 460px;
+  min-width: 250px;
   margin-right: 0px;
+
+  @media (max-width: 444px) {
+    height: min-content;
+  }
 `;
 
 const DivForListElems = styled.div`
@@ -28,6 +32,11 @@ const DivForListElems = styled.div`
   flex-wrap: wrap;
   align-items: center;
   column-gap: 10px;
+
+  @media (max-width: 444px) {
+    gap: 10px;
+    margin: 5px;
+  }
 `;
 
 const SpanClearElem = styled.span`
