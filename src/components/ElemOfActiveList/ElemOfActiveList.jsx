@@ -23,7 +23,7 @@ const SpanSkillTextElem = styled.span`
 const DivButtonToTextIntoDivElem = styled.span`
   height: 100%;
   background-color: hsl(180, 29%, 50%);
-  width: 30px;
+  width: 40px;
   border-radius: 0px 5px 5px 0px;
   color: white;
   display: flex;
