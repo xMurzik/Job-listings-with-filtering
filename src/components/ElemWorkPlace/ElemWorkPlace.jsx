@@ -10,36 +10,38 @@ const ElemWorkPlace = ({
   infoVac,
   infoSkills,
 }) => {
+  const newInfoSkills = infoSkills.filter((elem) => elem !== undefined);
   return (
     <div className={styles.vacancie}>
       <div className={styles.contElems}>
         <div style={{ minWidth: '88px' }} className={styles.imgCont}>
           <img
-            src={require('./images/insure.svg').default}
+            src={require(`${image}`)}
             className={styles.imgCompany}
             alt="#"
           />
         </div>
         <div className={styles.infoCompany}>
           <div className={styles.nameCompany}>
-            <span className={styles.nameOfCompany}>Photoshop</span>
+            <span className={styles.nameOfCompany}>{compName}</span>
             <div style={{ width: '5px' }}></div>
 
-            <span className={styles.featuresNew}>NEW!</span>
-            <span className={styles.features}>FEATHURED</span>
+            {isNew ? <span className={styles.featuresNew}>NEW!</span> : ''}
+            {isFeat ? <span className={styles.features}>FEATURED</span> : ''}
           </div>
-          <div className={styles.skill}>Senior Frontend Developer</div>
+          <div className={styles.skill}>{profName}</div>
           <div className={styles.aboutVac}>
-            <span>5d ago</span>
-            <span>Contract</span>
-            <span>USA only</span>
+            {infoVac.map((elem) => (
+              <span key={elem}>{elem}</span>
+            ))}
           </div>
         </div>
         <div className={styles.skillz}>
-          <div className={styles.skillName}>asdasd</div>
-          <div className={styles.skillName}>asdasd</div>
-          <div className={styles.skillName}>asdasd</div>
-          <div className={styles.skillName}>asdasd</div>
+          {newInfoSkills.map((elem, id) => (
+            <div key={id} className={styles.skillName}>
+              {elem}
+            </div>
+          ))}
         </div>
       </div>
     </div>
