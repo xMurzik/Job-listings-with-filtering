@@ -13,7 +13,7 @@ const ElemWorkPlace = ({
   return (
     <div className={styles.vacancie}>
       <div className={styles.contElems}>
-        <div style={{ minWidth: '88px' }}>
+        <div style={{ minWidth: '88px' }} className={styles.imgCont}>
           <img
             src={require('./images/insure.svg').default}
             className={styles.imgCompany}

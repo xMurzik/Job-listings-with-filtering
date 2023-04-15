@@ -128,4 +128,30 @@
   .vacancie {
     height: min-content;
   }
+
+  .imgCont {
+    margin: auto;
+  }
+  .imgCompany {
+    width: 100%;
+  }
+
+  .infoCompany {
+    margin: auto;
+    width: 60%;
+  }
+  .nameCompany {
+    gap: 5px;
+    flex-direction: column;
+  }
+  .aboutVac {
+    flex-direction: column;
+
+    align-items: center;
+    gap: 2px;
+  }
+  .skill {
+    margin: auto;
+    text-align: center;
+  }
 }
