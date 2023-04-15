@@ -5,11 +5,12 @@ import ActiveList from './components/ActiveList/ActiveList';
 import WorkPlace from './components/WorkPlace/WorkPlace';
 import data from './data.json';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadList } from './components/ElemWorkPlace/listSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const countOfList = useSelector((state) => state.listWork.listSkills);
 
   useEffect(() => {
     dispatch(loadList(data));
@@ -19,7 +20,7 @@ function App() {
     <>
       <Header />
       <Main>
-        <ActiveList />
+        {countOfList.length !== 0 ? <ActiveList /> : ''}
         <WorkPlace />
       </Main>
     </>

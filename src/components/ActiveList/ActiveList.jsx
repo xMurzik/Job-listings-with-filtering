@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ElemOfActiveList from '../ElemOfActiveList/ElemOfActiveList';
 import styles from './ActiveList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../ElemWorkPlace/listSlice';
 
 const SpanClearElem = styled.span`
   align-self: center;
@@ -16,18 +18,23 @@ const SpanClearElem = styled.span`
 `;
 
 const ActiveList = () => {
+  const dispatch = useDispatch();
+  const list = useSelector((state) => state.listWork.listSkills);
   return (
     <div className={styles.listElem}>
       <div className={styles.listForElems}>
-        <ElemOfActiveList skill={'Front ENd'} />
-        <ElemOfActiveList skill={'asd'} />
-        <ElemOfActiveList skill={'asd'} />
-        <ElemOfActiveList skill={'JavaScript'} />
-        <ElemOfActiveList skill={'asd'} />
-        <ElemOfActiveList skill={'asd'} />
+        {list.map((elem, id) => (
+          <ElemOfActiveList key={id} skill={elem} />
+        ))}
       </div>
 
-      <SpanClearElem>Clear</SpanClearElem>
+      <SpanClearElem
+        onClick={() => {
+          dispatch(reset());
+        }}
+      >
+        Clear
+      </SpanClearElem>
     </div>
   );
 };

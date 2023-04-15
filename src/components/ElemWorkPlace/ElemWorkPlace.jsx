@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './ElemWorkPlace.module.css';
+import { useDispatch } from 'react-redux';
+
+import { loadNewSkill } from './listSlice';
 
 const ElemWorkPlace = ({
   image,
@@ -11,6 +14,8 @@ const ElemWorkPlace = ({
   infoSkills,
 }) => {
   const newInfoSkills = infoSkills.filter((elem) => elem !== undefined);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.vacancie}>
       <div className={styles.contElems}>
@@ -38,7 +43,13 @@ const ElemWorkPlace = ({
         </div>
         <div className={styles.skillz}>
           {newInfoSkills.map((elem, id) => (
-            <div key={id} className={styles.skillName}>
+            <div
+              onClick={() => {
+                dispatch(loadNewSkill(elem));
+              }}
+              key={id}
+              className={styles.skillName}
+            >
               {elem}
             </div>
           ))}

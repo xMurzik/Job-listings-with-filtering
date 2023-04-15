@@ -6,4 +6,5 @@ export const store = configureStore({
     listWork: listReducer,
     // listSkill: skillReducer,
   },
+  devTools: true,
 });

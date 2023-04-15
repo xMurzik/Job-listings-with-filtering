@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { deleteSkill } from '../ElemWorkPlace/listSlice';
 
 const MainDivElem = styled.div`
   min-width: 80px;
@@ -38,11 +40,16 @@ const DivButtonToTextIntoDivElem = styled.span`
 `;
 
 const ElemOfActiveList = ({ skill }) => {
+  const dispatch = useDispatch();
   SpanSkillTextElem.textContent = skill;
   return (
     <MainDivElem>
       <SpanSkillTextElem>{skill}</SpanSkillTextElem>
-      <DivButtonToTextIntoDivElem>
+      <DivButtonToTextIntoDivElem
+        onClick={() => {
+          dispatch(deleteSkill(skill));
+        }}
+      >
         <p>X</p>
       </DivButtonToTextIntoDivElem>
     </MainDivElem>

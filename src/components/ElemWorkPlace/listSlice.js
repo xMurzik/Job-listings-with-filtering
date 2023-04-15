@@ -12,24 +12,37 @@ export const listSlice = createSlice({
       state.listVac = [...action.payload];
     },
     loadNewSkill: (state, action) => {
-      state.listSkills.push(action.payload);
+      if (!state.listSkills.includes(action.payload)) {
+        state.listSkills.push(action.payload);
+      }
+
       const newArr = data.filter((elem) => {
         const listSkills = [...elem.languages, elem.role, elem.level];
-        return state.listSkills.every((elem) => elem.includes(listSkills));
+        return state.listSkills.every((elem) => listSkills.includes(elem));
       });
-      return newArr;
+
+      state.listVac = [...newArr];
     },
     deleteSkill: (state, action) => {
-      state.listSkills.filter((elem) => elem !== action.payload);
-      const newArr = data.filter((elem) => {
-        const listSkills = [...elem.languages, elem.role, elem.level];
-        return state.listSkills.every((elem) => elem.includes(listSkills));
-      });
-      return newArr;
+      const newState = state.listSkills.filter(
+        (elem) => elem !== action.payload
+      );
+
+      if (newState.length === 0) {
+        state.listVac = [...data];
+      } else {
+        const newArr = data.filter((elem) => {
+          const listSkills = [...elem.languages, elem.role, elem.level];
+          return newState.every((elem) => listSkills.includes(elem));
+        });
+        state.listVac = [...newArr];
+      }
+
+      state.listSkills = [...newState];
     },
-    reset: (state, action) => {},
+    reset: (state, action) => ({ listSkills: [], listVac: data }),
   },
 });
 
-export const { loadList, loadNewSkill, deleteSkill } = listSlice.actions;
+export const { loadList, loadNewSkill, deleteSkill, reset } = listSlice.actions;
 export const listReducer = listSlice.reducer;
